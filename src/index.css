@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.comp-max-width {
+  @apply w-[90rem];
+}
+.navlink {
+  @apply mx-8 font-medium transition-colors hover:text-purple active:text-pinkish;
+}
+
+/* ROW SCHEMA */
+.row-centered {
+  @apply flex justify-center items-center;
+}
+.row-around {
+  @apply flex justify-around items-center;
+}
+.row-between {
+  @apply flex justify-around items-center;
+}
+/* ********************** */

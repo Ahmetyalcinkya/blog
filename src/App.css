@@ -1,0 +1,10 @@
+.dark-background-container {
+  background-image: url("./svg/darkBackground.svg");
+  background-size: cover;
+  background-position: center;
+}
+.light-background-container {
+  background-image: url("./svg/lightBackground.svg");
+  background-size: cover;
+  background-position: center;
+}
