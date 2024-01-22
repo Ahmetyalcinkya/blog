@@ -1,3 +1,8 @@
 {
-  "Home": "Home"
+  "Home": "Home",
+  "About": "About",
+  "Team": "Team",
+  "Contact": "Contact Us",
+  "Login": "Login",
+  "Signup": "Signup"
 }
