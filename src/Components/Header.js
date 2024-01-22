@@ -19,7 +19,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="w-full row-centered sticky top-0 left-0 right-0 bg-transparent transition-colors p-4 z-50">
+    <header className="w-full row-centered sticky top-0 left-0 right-0 bg-purple/20 dark:bg-pinkish/20 transition-colors p-4 z-50">
       <NavLink
         to="/"
         className="flex items-center text-2xl font-bold text-purple dark:text-pinkish"
