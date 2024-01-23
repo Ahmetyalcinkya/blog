@@ -20,7 +20,7 @@ const BlogCompound = ({ post }) => {
           <p className="line-clamp-6">{post.content}</p>
         </div>
         <hr />
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center px-4">
           <img
             src={post.userPicture}
             alt=""

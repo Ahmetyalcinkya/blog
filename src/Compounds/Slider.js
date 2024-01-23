@@ -18,7 +18,7 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Slider = () => {
   return (
     <AutoplaySlider
-      play={false}
+      play={true}
       cancelOnInteraction={true}
       interval={6000}
       className="h-96 object-cover"

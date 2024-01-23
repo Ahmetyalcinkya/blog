@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../../Redux/features/thunk/fetchPosts";
 import BlogCompound from "../../Compounds/BlogCompound";
 
-const PageContent = () => {
+const PageContent = ({ goToGitHub, goToLinkedIn, goToInstagram }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.post.posts);
 
@@ -20,22 +20,6 @@ const PageContent = () => {
     ?.sort((a, b) => b.rating - a.rating)
     .slice(0, 9);
   console.log(highestRating);
-
-  const goToGitHub = () => {
-    const gitHub = "https://github.com/Ahmetyalcinkya";
-
-    window.open(gitHub, "_blank");
-  };
-  const goToLinkedIn = () => {
-    const linkedIn = "https://www.linkedin.com/in/ahmet-can-yalcinkaya/";
-
-    window.open(linkedIn, "_blank");
-  };
-  const goToInstagram = () => {
-    const instagram = "https://www.instagram.com/ahmet.yalcinkayaa/";
-
-    window.open(instagram, "_blank");
-  };
 
   useEffect(() => {
     posts?.length === 0 && dispatch(fetchPosts());
@@ -72,7 +56,7 @@ const PageContent = () => {
           </Link>
         </div>
       </section>
-      <section className="comp-max-width mb-12">
+      <section className="w-full mb-12">
         <Slider />
       </section>
       <section className="comp-max-width flex flex-col items-center my-4">
