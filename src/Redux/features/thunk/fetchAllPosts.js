@@ -1,9 +1,9 @@
 import { AxiosWAuth } from "../../../Utilities/AxiosWAuth";
 import { setPost } from "../post/postSlice";
 
-export const fetchPosts = (params) => (dispatch) => {
+export const fetchAllPosts = () => (dispatch) => {
   AxiosWAuth()
-    .get("posts", { params })
+    .get("posts/")
     .then((response) => {
       dispatch(setPost(response.data));
     })

@@ -7,6 +7,7 @@ import CustomizedSwitches from "../Compounds/SwitchCompound";
 import { Popover, Transition } from "@headlessui/react";
 import { t } from "i18next";
 import { Link, NavLink } from "react-router-dom";
+import LOGO from "../Assets/Blog.io.png";
 
 const Header = () => {
   const { theme } = useContext(SwitchContext);
@@ -19,12 +20,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="w-full row-centered sticky top-0 left-0 right-0 bg-purple/20 dark:bg-pinkish/20 transition-colors p-4 z-50">
+    <header className="w-full row-centered sticky top-0 left-0 right-0 bg-purple/20 dark:bg-pinkish/20 transition-colors p-4 h-32 z-50">
       <NavLink
         to="/"
         className="flex items-center text-2xl font-bold text-purple dark:text-pinkish"
       >
-        Logo
+        <img src={LOGO} alt="" className="w-20 h-20 rounded-full" />
       </NavLink>
       <nav className="w-[75rem] row-around py-4 px-0 text-purple dark:text-pinkish">
         <NavLink to="/" className="navlink">

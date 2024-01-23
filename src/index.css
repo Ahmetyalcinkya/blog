@@ -19,4 +19,7 @@
 .row-between {
   @apply flex justify-around items-center;
 }
+.row-evenly {
+  @apply flex justify-evenly items-center;
+}
 /* ********************** */

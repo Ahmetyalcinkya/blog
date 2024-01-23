@@ -9,8 +9,8 @@ import { t } from "i18next";
 import { Link } from "react-router-dom";
 import Slider from "../../Compounds/Slider";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts } from "../../Redux/features/thunk/fetchPosts";
 import BlogCompound from "../../Compounds/BlogCompound";
+import { fetchAllPosts } from "../../Redux/features/thunk/fetchAllPosts";
 
 const PageContent = ({ goToGitHub, goToLinkedIn, goToInstagram }) => {
   const dispatch = useDispatch();
@@ -19,10 +19,9 @@ const PageContent = ({ goToGitHub, goToLinkedIn, goToInstagram }) => {
   const highestRating = [...posts]
     ?.sort((a, b) => b.rating - a.rating)
     .slice(0, 9);
-  console.log(highestRating);
 
   useEffect(() => {
-    posts?.length === 0 && dispatch(fetchPosts());
+    posts?.length === 0 && dispatch(fetchAllPosts());
   }, []);
 
   return (
