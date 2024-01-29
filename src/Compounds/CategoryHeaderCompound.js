@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const CategoryHeaderCompound = ({ category }) => {
+  const { search } = useLocation();
   return (
     <Link
-      to={`/blog/${category.title.toLowerCase()}/posts?category=${category.id}`}
+      to={`/blogs/${category.title.toLowerCase()}${search}`}
       key={category.id}
-      className="flex justify-center items-center gap-x-2 border p-1 rounded-full border-purple dark:border-pinkish shadow-lightCustomBoxShadow dark:shadow-darkCustomBoxShadow text-purple dark:text-white bg-purple/20 dark:bg-pinkish/20"
+      className="flex justify-center items-center gap-x-2 border py-1 px-2 rounded-full border-purple dark:border-pinkish shadow-lightCustomBoxShadow dark:shadow-darkCustomBoxShadow text-purple dark:text-white bg-purple/20 dark:bg-pinkish/20"
     >
       <img
         src={category.image}

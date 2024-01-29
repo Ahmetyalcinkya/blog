@@ -31,7 +31,7 @@ const Header = () => {
         <NavLink to="/" className="navlink">
           {t("Home")}
         </NavLink>
-        <NavLink to="/blog" className="navlink">
+        <NavLink to="/blogs" className="navlink">
           Blog
         </NavLink>
         <NavLink to="/about" className="navlink">

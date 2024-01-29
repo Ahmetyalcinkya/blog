@@ -23,10 +23,10 @@ function App() {
         <Route exact path={"/"}>
           <HomePage />
         </Route>
-        <Route exact path={"/blog/:categoryTitle?/:posts?/:category?"}>
+        <Route exact path={"/blogs/:category?"}>
           <BlogListPage />
         </Route>
-        <Route exact path={"/blog/:categoryTitle/:blogId"}>
+        <Route exact path={"/blog/:category?/:blogId"}>
           <BlogPage />
         </Route>
         <Route exact path={"/about"}>
