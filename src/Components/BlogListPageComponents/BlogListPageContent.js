@@ -10,14 +10,15 @@ import { fetchPostsByTitle } from "../../Redux/features/thunk/fetchPostsByTitle"
 import BlogCard from "../../Compounds/BlogCard";
 import { useParams } from "react-router-dom";
 import HighestCard from "../../Compounds/HighestCard";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 const filteredParamInitial = {
   filter: "",
 };
 
 const BlogListPageContent = () => {
   const { category } = useParams();
-  console.log(category);
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.post.posts);
   const categories = useSelector((state) => state.global.categories);
@@ -49,7 +50,7 @@ const BlogListPageContent = () => {
   }, [queryParams, catId]);
 
   useEffect(() => {
-    posts?.length === 0 && dispatch(fetchAllPosts());
+    dispatch(fetchAllPosts());
   }, []);
 
   useEffect(() => {
@@ -57,7 +58,6 @@ const BlogListPageContent = () => {
     dispatch(fetchAllPosts());
   }, []);
 
-  //   ADD NEW BLOG
   const highestPosts = [...posts]
     ?.sort((a, b) => b.rating - a.rating)
     .slice(0, 5);
@@ -76,10 +76,13 @@ const BlogListPageContent = () => {
               Search
             </button>
           </form>
-          <div className="mr-[26.5rem] cursor-pointer border py-2 px-3 border-purple dark:border-pinkish rounded-lg bg-purple/30 dark:bg-pinkish/30 hover:bg-darkLila/60 hover:dark:bg-lila/60 transition-colors duration-500 text-purple dark:text-white font-bold">
-            Yeni Post
-            {/* Background yeşil olacak!!! Fontawesome icon eklenecek!!! */}
-          </div>
+          <Link
+            to={"/user/add-new-blog"}
+            className=" flex items-center justify-center gap-x-2 cursor-pointer border py-2 px-3 dark:border-white rounded-lg bg-green hover:bg-lightGreen duration-300 transition-colors text-white font-bold"
+          >
+            <FontAwesomeIcon icon={faFileArrowUp} />
+            <h4>Yeni Gönderi</h4>
+          </Link>
         </div>
       </div>
       <div className="flex justify-between gap-x-10 my-4">

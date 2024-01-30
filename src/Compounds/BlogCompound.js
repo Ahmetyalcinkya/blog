@@ -33,7 +33,10 @@ const BlogCompound = ({ post }) => {
         </div>
       </div>
       <div className="w-full flex justify-center items-center border-t p-2 hover:dark:bg-lila/30 hover:bg-darkLila/30 rounded-b-2xl transition-colors duration-300">
-        <Link to={`/blog/${post.id}`} className="w-full text-center">
+        <Link
+          to={`/blog/${post.categoryTitle.toLowerCase()}/${post.id}`}
+          className="w-full text-center"
+        >
           {t("GoToBlog")}
         </Link>
       </div>

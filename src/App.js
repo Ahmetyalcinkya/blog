@@ -10,6 +10,8 @@ import UserProfilePage from "./Layouts/UserProfilePage";
 import "./App.css";
 import LoginPage from "./Layouts/LoginPage";
 import RegisterPage from "./Layouts/RegisterPage";
+import ProtectedPage from "./Layouts/ProtectedPage";
+import NewBlogPage from "./Layouts/NewBlogPage";
 
 function App() {
   const { theme } = useContext(SwitchContext);
@@ -26,7 +28,7 @@ function App() {
         <Route exact path={"/blogs/:category?"}>
           <BlogListPage />
         </Route>
-        <Route exact path={"/blog/:category?/:blogId"}>
+        <Route exact path={"/blog/:category/:id"}>
           <BlogPage />
         </Route>
         <Route exact path={"/about"}>
@@ -40,6 +42,9 @@ function App() {
         </Route>
         <Route exact path={"/signup"}>
           <RegisterPage />
+        </Route>
+        <Route exact path="/user/add-new-blog">
+          <ProtectedPage PageComponent={NewBlogPage} fromURL={"/login"} />
         </Route>
       </Switch>
     </div>

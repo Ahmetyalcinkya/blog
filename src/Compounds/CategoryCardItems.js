@@ -13,7 +13,7 @@ const CategoryCardItems = ({ categories, setCategoryProducts }) => {
         Categories
       </h4>
       {/* Language options */}
-      <div className="flex gap-x-8 mb-8">
+      <div className="flex gap-x-2 mb-8">
         {highRatingCategories?.map((category) => (
           <CategoryHeaderCompound key={category.id} category={category} />
         ))}

@@ -13,6 +13,8 @@ module.exports = {
       // Standarts
       white: "#fff",
       black: "#000",
+      green: "#238636",
+      lightGreen: "#2d9c42",
     },
     boxShadow: {
       lightCustomBoxShadow: "#392467 0 0.2rem 1.5rem",

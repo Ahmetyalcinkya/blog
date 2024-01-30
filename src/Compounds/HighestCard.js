@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const HighestCard = ({ post }) => {
   return (
     <Link
-      to={`/blog/${post.id}`}
+      to={`/blog/${post.categoryTitle.toLowerCase()}/${post.id}`}
       className="flex flex-col w-full px-4 py-1.5 gap-y-1 text-black dark:text-white hover:bg-darkLila hover:text-white hover:dark:bg-lila rounded-lg transition-colors duration-500"
     >
       <div className="flex gap-x-4 items-center justify-between">

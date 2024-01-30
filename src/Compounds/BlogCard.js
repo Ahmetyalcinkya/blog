@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const BlogCard = ({ post }) => {
   return (
     <Link
-      to={`/blog/${post.id}`}
+      to={`/blog/${post.categoryTitle.toLowerCase()}/${post.id}`}
       className="flex flex-col border w-full gap-y-1 px-4 py-2 border-purple dark:border-pinkish rounded-xl bg-purple/30 dark:bg-pinkish/30 shadow-lightCustomBoxShadow dark:shadow-darkCustomBoxShadow text-black dark:text-white"
     >
       <div className="flex w-full justify-between items-center">
