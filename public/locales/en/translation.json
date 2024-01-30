@@ -3,11 +3,15 @@
   "About": "About",
   "Team": "Team",
   "Contact": "Contact Us",
+  "Enter": "Login to System",
   "Login": "Login",
   "Signup": "Signup",
+  "AdminControl": "Control Panel",
   "Articles": "Discover Nice Articles",
   "Description": "Welcome! Here, you will discover meticulously curated, exceptional articles crafted to captivate your curiosity and expand your realm of thought. Within this realm, imbued with profound insights across various subjects, you will encounter inspiring narratives and the latest trends. A plethora of content catering to diverse tastes awaits you on this platform. In this space filled with articles that resonate, inform, and prompt contemplation, get ready to embark on a journey of exploration. Be prepared to delve into a page adorned with articles that not only influence and educate but also beckon you to ponder.",
   "ExploreBlogs": "EXPLORE OTHER BLOGS",
   "Highest": "Highest rating posts!",
-  "GoToBlog": "Go to Blog"
+  "GoToBlog": "Go to Blog",
+  "UserProfile": "Profile",
+  "Logout": "Log out"
 }

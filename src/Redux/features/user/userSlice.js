@@ -7,6 +7,8 @@ const initialState = {
     surname: "",
     email: "",
     profilePicture: "",
+    role: "",
+    token: "",
   },
   fetchStates: fetchStates.not_fetched,
 };
