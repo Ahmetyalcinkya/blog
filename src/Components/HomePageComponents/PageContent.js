@@ -48,7 +48,7 @@ const PageContent = ({ goToGitHub, goToLinkedIn, goToInstagram }) => {
             {t("Description")}
           </p>
           <Link
-            to="/blog"
+            to="/blogs"
             className="py-2 px-6 border border-purple dark:border-pinkish shadow-lightCustomBoxShadow dark:shadow-darkCustomBoxShadow rounded-full bg-purple/30 dark:bg-pinkish/30 text-white hover:bg-darkLila hover:dark:bg-pinkish transition-colors duration-300"
           >
             {t("ExploreBlogs")}

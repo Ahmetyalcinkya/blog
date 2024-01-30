@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchStates } from "../global/globalSlice";
 
 const initialState = {
   posts: [],
+  fetchStates: fetchStates.not_fetched,
 };
 
 export const postSlice = createSlice({
@@ -14,9 +16,12 @@ export const postSlice = createSlice({
         posts: [...action.payload],
       };
     },
+    changeFetchStates: (state, action) => {
+      state.fetchStates = action.payload;
+    },
   },
 });
 
-export const { setPost } = postSlice.actions;
+export const { setPost, changeFetchStates } = postSlice.actions;
 
 export default postSlice.reducer;

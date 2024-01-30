@@ -23,3 +23,18 @@
   @apply flex justify-evenly items-center;
 }
 /* ********************** */
+
+/* FORM */
+
+.form-div {
+  @apply w-96 h-24 text-left;
+}
+.form-label {
+  @apply block mb-2 text-sm font-medium text-purple dark:text-pinkish;
+}
+.form-input {
+  @apply bg-ligtGray dark:bg-white border border-purple dark:border-pinkish text-purple dark:text-lila text-sm rounded-lg block w-full p-2.5;
+}
+.form-span {
+  @apply mt-2 text-sm text-purple dark:text-pinkish;
+}
