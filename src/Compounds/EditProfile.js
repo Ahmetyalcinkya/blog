@@ -10,9 +10,6 @@ const EditProfile = ({ param }) => {
       <Link to={`/user/${param?.id}/comments`} className="edit-link">
         Yorumlarım
       </Link>
-      <Link to={`/user/${param?.id}/posts`} className="edit-link">
-        Postlarım
-      </Link>
       <Link to={`/user/${param?.id}/add-new-blog`} className="edit-link">
         Add New Blog
       </Link>
