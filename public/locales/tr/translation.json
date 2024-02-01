@@ -13,5 +13,12 @@
   "Highest": "En yüksek puan alan gönderiler!",
   "GoToBlog": "Bloga git",
   "UserProfile": "Profil",
-  "Logout": "Çıkış Yap"
+  "Logout": "Çıkış Yap",
+
+  "Welcome": "Hoş Geldiniz!",
+  "About1": "Merhaba, ben Ahmet Can Yalçınkaya, bu blog sayfasının yazarıyım. Bilgisayar dünyasına duyduğum derin ilgi ve tutkuyla, bu platformda yazılım ve programlama dillerine odaklanan bilgi dolu bir içerik sunmayı amaçlıyorum. Blog.io, yazılım dünyasının derinliklerine inen bir keşif yolculuğudur. Sizlere en güncel teknoloji trendleri, programlama dilleri, geliştirme araçları ve daha fazlası hakkında bilgiler sunarak, yazılım dünyasının kapılarını sizinle birlikte aralamak için buradayım.",
+  "Why": "Neden Bu Blog?",
+  "About2": "Bu blog, yazılım ve programlama konularına olan tutkumun bir yansımasıdır. Burada, hem acemi hem de deneyimli geliştiriciler için değerli bilgiler, ipuçları ve paylaşımlar bulacaksınız. Yazılım dünyasındaki hızlı değişimlere ayak uydurmak, yeni teknolojilere hakim olmak ve projelerinizi daha etkili bir şekilde yönetmek istiyorsanız, Blog.io tam da size göre!",
+  "WhatYouFind": "Neler Bulacaksınız?",
+  "About3": "Bu blogda, çeşitli programlama dilleri, geliştirme araçları, yazılım tasarımı ve projelerle ilgili derinlemesine makaleler bulacaksınız. Ayrıca, programlamaya dair güncel haberler, endüstri trendleri ve gelecekteki teknoloji tahminleri gibi konularla ilgili düzenli güncellemeler de yapacağım. Birlikte öğrenmek ve büyümek adına bu heyecan verici yazılım serüveninde bana katılın!"
 }

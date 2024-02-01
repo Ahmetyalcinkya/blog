@@ -13,5 +13,12 @@
   "Highest": "Highest rating posts!",
   "GoToBlog": "Go to Blog",
   "UserProfile": "Profile",
-  "Logout": "Log out"
+  "Logout": "Log out",
+
+  "Welcome": "Welcome!",
+  "About1": "Hello, I'm Ahmet Can Yalçınkaya, the author of this blog. Driven by a deep interest and passion for the world of computers, I aim to provide insightful content focused on software and programming languages on this platform. Blog.io is an exploration journey delving into the depths of the software world. I am here to open the doors of the software realm together with you, offering the latest technology trends, programming languages, development tools, and more.",
+  "Why": "Why This Blog?",
+  "About2": "This blog is a reflection of my passion for software and programming topics. Here, you will find valuable information, tips, and shares for both novice and experienced developers. If you want to keep up with the rapid changes in the software world, master new technologies, and manage your projects more effectively, Blog.io is just for you!",
+  "WhatYouFind": "What Will You Find?",
+  "About3": "In this blog, you will discover in-depth articles on various programming languages, development tools, software design, and projects. Additionally, I will provide regular updates on programming-related news, industry trends, and future technology predictions. Join me in this exciting software journey to learn and grow together!"
 }
