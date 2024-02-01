@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { AxiosWAuth } from "../../Utilities/AxiosWAuth";
 import BlogSlider from "../../Compounds/BlogSlider";
+import CommentCard from "../../Compounds/CommentCard";
+import AddNewComment from "../../Compounds/AddNewComment";
 
 const BlogPagePageContent = ({ id }) => {
   const [post, setPost] = useState(null);
+  const [comments, setComments] = useState(null);
 
   useEffect(() => {
     AxiosWAuth()
@@ -12,9 +15,16 @@ const BlogPagePageContent = ({ id }) => {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    AxiosWAuth()
+      .get(`comments/post/${id}`)
+      .then((res) => setComments(res.data))
+      .catch((err) => console.log(err));
+  });
+
   const images = post?.images;
 
-  console.log(post);
+  console.log(comments);
 
   return (
     <div className="w-full flex justify-center items-start min-h-screen">
@@ -24,7 +34,7 @@ const BlogPagePageContent = ({ id }) => {
           <h3>{post?.categoryRating}</h3>
         </div>
         <hr className="w-full my-4 text-purple dark:text-pinkish" />
-        <div className="px-8">
+        <div className="px-8 py-8">
           <div className="px-8 border-l border-r border-purple dark:border-pinkish">
             <div className="flex flex-col w-full gap-y-4">
               <h3 className="text-2xl text-purple dark:text-white font-medium">
@@ -46,12 +56,23 @@ const BlogPagePageContent = ({ id }) => {
                   </h4>
                 </div>
                 <h4 className="font-bold text-xl">
-                  Created At: {post?.createdAt.slice(0, 10)}
+                  Post Date: {post?.createdAt.slice(0, 10)}
                 </h4>
               </div>
             </div>
           </div>
         </div>
+        <h4 className="my-8 text-3xl text-purple dark:text-pinkish font-medium">
+          COMMENTS
+        </h4>
+        {comments?.length === 0 ? (
+          <h4 className="font-bold text-purple dark:text-pinkish text-2xl">
+            Henüz bir yorum yok!
+          </h4>
+        ) : (
+          comments?.map((comment) => <CommentCard comment={comment} />)
+        )}
+        <AddNewComment id={id} />
       </div>
     </div>
   );
