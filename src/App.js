@@ -12,6 +12,7 @@ import LoginPage from "./Layouts/LoginPage";
 import RegisterPage from "./Layouts/RegisterPage";
 import ProtectedPage from "./Layouts/ProtectedPage";
 import NewBlogPage from "./Layouts/NewBlogPage";
+import TeamPage from "./Layouts/TeamPage";
 
 function App() {
   const { theme } = useContext(SwitchContext);
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route exact path={"/about"}>
           <AboutUsPage />
+        </Route>
+        <Route exact path={"/team"}>
+          <TeamPage />
         </Route>
         <Route exact path={"/user"}>
           <UserProfilePage />

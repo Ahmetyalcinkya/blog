@@ -47,10 +47,10 @@ const Header = () => {
         <NavLink to="/about" className="navlink">
           {t("About")}
         </NavLink>
-        <NavLink to="/about" className="navlink">
+        <NavLink to="/team" className="navlink">
           {t("Team")}
         </NavLink>
-        <NavLink to="/about" className="navlink">
+        <NavLink to="/contact" className="navlink">
           {t("Contact")}
         </NavLink>
         <div className="w-24 gap-x-2 flex justify-center">
