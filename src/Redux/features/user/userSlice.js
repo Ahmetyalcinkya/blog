@@ -3,10 +3,12 @@ import { fetchStates } from "../global/globalSlice";
 
 const initialState = {
   user: {
+    id: "",
     name: "",
     surname: "",
     email: "",
     profilePicture: "",
+    registrationDate: "",
     role: "",
     token: "",
   },

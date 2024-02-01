@@ -38,3 +38,9 @@
 .form-span {
   @apply mt-2 text-sm text-purple dark:text-pinkish;
 }
+
+/* EDIT COMPOUND */
+
+.edit-link {
+  @apply border w-60 rounded-md border-purple dark:border-pinkish bg-purple/30 dark:bg-pinkish/30 text-center;
+}

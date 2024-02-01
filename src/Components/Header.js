@@ -14,6 +14,7 @@ import { fetchStates } from "../Redux/features/global/globalSlice";
 const Header = () => {
   const { theme } = useContext(SwitchContext);
   const { toggleLanguage } = useContext(LangContext);
+  const { user } = useSelector((state) => state.user);
 
   const userNotFetched = useSelector(
     (state) => state.user.fetchStates === fetchStates.not_fetched
@@ -21,11 +22,11 @@ const Header = () => {
   const userFetched = useSelector(
     (state) => state.user.fetchStates === fetchStates.fetched
   );
-  const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
     if (theme === "light") {
     } else {
+      //TOASTIFY
     }
   }, []);
 
@@ -119,7 +120,7 @@ const Header = () => {
               {userFetched && user?.role.toUpperCase() === "USER" && (
                 <div className="relative flex flex-col gap-2 text-cream p-2 w-full bg-purple dark:bg-pinkish text-white dark:text-black">
                   <Link
-                    to="/user"
+                    to={`/user/${user?.id}`}
                     className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila"
                   >
                     {t("UserProfile")}
@@ -132,7 +133,7 @@ const Header = () => {
               {userFetched && user?.role.toUpperCase() === "ADMIN" && (
                 <div className="relative flex flex-col gap-2 text-cream p-2 w-full bg-purple dark:bg-pinkish text-white dark:text-black">
                   <Link
-                    to="/user"
+                    to={`/user/${user?.id}`}
                     className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila"
                   >
                     {t("UserProfile")}

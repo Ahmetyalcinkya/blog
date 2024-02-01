@@ -22,6 +22,7 @@ const BlogListPageContent = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.post.posts);
   const categories = useSelector((state) => state.global.categories);
+  const authenticatedUser = useSelector((state) => state.user.user);
 
   const [queryParams, setQueryParams] = useQueryParams();
   const [filteredParams, setFilteredParams] = useState(filteredParamInitial);
@@ -76,13 +77,15 @@ const BlogListPageContent = () => {
               Search
             </button>
           </form>
-          <Link
-            to={"/user/add-new-blog"}
-            className=" flex items-center justify-center gap-x-2 cursor-pointer border py-2 px-3 dark:border-white rounded-lg bg-green hover:bg-lightGreen duration-300 transition-colors text-white font-bold"
-          >
-            <FontAwesomeIcon icon={faFileArrowUp} />
-            <h4>Yeni Gönderi</h4>
-          </Link>
+          {authenticatedUser?.id !== "" && (
+            <Link
+              to={`/user/${authenticatedUser?.id}/add-new-blog`}
+              className=" flex items-center justify-center gap-x-2 cursor-pointer border py-2 px-3 dark:border-white rounded-lg bg-green hover:bg-lightGreen duration-300 transition-colors text-white font-bold"
+            >
+              <FontAwesomeIcon icon={faFileArrowUp} />
+              <h4>Yeni Gönderi</h4>
+            </Link>
+          )}
         </div>
       </div>
       <div className="flex justify-between gap-x-10 my-4">

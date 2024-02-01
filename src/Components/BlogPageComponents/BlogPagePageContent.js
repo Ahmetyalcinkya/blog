@@ -20,11 +20,9 @@ const BlogPagePageContent = ({ id }) => {
       .get(`comments/post/${id}`)
       .then((res) => setComments(res.data))
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   const images = post?.images;
-
-  console.log(comments);
 
   return (
     <div className="w-full flex justify-center items-start min-h-screen">
