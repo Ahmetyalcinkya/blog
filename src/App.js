@@ -13,8 +13,7 @@ import RegisterPage from "./Layouts/RegisterPage";
 import ProtectedPage from "./Layouts/ProtectedPage";
 import NewBlogPage from "./Layouts/NewBlogPage";
 import TeamPage from "./Layouts/TeamPage";
-import UserEditPage from "./Layouts/UserEditPage";
-import CommentsPage from "./Layouts/CommentsPage";
+import ContactPage from "./Layouts/ContactPage";
 
 function App() {
   const { theme } = useContext(SwitchContext);
@@ -40,6 +39,9 @@ function App() {
         <Route exact path={"/team"}>
           <TeamPage />
         </Route>
+        <Route exact path={"/contact"}>
+          <ContactPage />
+        </Route>
         <Route exact path={"/user/:id"}>
           <UserProfilePage />
         </Route>
@@ -48,12 +50,6 @@ function App() {
         </Route>
         <Route exact path={"/signup"}>
           <RegisterPage />
-        </Route>
-        <Route exact path="/user/:id/edit">
-          <ProtectedPage PageComponent={UserEditPage} fromURL={"/login"} />
-        </Route>
-        <Route exact path="/user/:id/comments">
-          <ProtectedPage PageComponent={CommentsPage} fromURL={"/login"} />
         </Route>
         <Route exact path="/user/:id/add-new-blog">
           <ProtectedPage PageComponent={NewBlogPage} fromURL={"/login"} />

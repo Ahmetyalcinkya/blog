@@ -11,7 +11,6 @@ const UserProfilePageContent = () => {
 
   const [user, setUser] = useState(null);
   const [postOfUser, setPostOfUser] = useState(null);
-  const [commentsOfUser, setCommentsOfUser] = useState(null); //Comments will be send to commentspage
 
   const highestPosts = postOfUser?.sort((a, b) => b.rating - a.rating);
 

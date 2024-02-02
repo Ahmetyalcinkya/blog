@@ -6,7 +6,14 @@ import { AxiosWAuth } from "../Utilities/AxiosWAuth";
 import { useHistory } from "react-router-dom";
 
 const AddNewComment = ({ id }) => {
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      content: "",
+    },
     mode: "all",
   });
 
@@ -47,8 +54,15 @@ const AddNewComment = ({ id }) => {
                 value: 3,
                 message: "Yorumunuz 3 harften kısa olamaz.",
               },
+              maxLength: {
+                value: 250,
+                message: "Yorumunuz 250 harften uzun olamaz.",
+              },
             })}
           />
+          {errors.content && (
+            <span className="form-span">* {errors.content.message}</span>
+          )}
         </label>
         <input type="hidden" {...register("postID")} defaultValue={id} />
         <button
