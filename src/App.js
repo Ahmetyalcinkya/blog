@@ -14,6 +14,8 @@ import ProtectedPage from "./Layouts/ProtectedPage";
 import NewBlogPage from "./Layouts/NewBlogPage";
 import TeamPage from "./Layouts/TeamPage";
 import ContactPage from "./Layouts/ContactPage";
+import AdminHomePage from "./Layouts/admin/AdminHomePage";
+import CategoryOperations from "./Layouts/admin/CategoryOperations";
 
 function App() {
   const { theme } = useContext(SwitchContext);
@@ -53,6 +55,15 @@ function App() {
         </Route>
         <Route exact path="/user/:id/add-new-blog">
           <ProtectedPage PageComponent={NewBlogPage} fromURL={"/login"} />
+        </Route>
+        <Route exact path="/admin/home">
+          <ProtectedPage PageComponent={AdminHomePage} fromURL={"/login"} />
+        </Route>
+        <Route exact path="/admin/category-operations">
+          <ProtectedPage
+            PageComponent={CategoryOperations}
+            fromURL={"/login"}
+          />
         </Route>
       </Switch>
     </div>

@@ -5,11 +5,11 @@ import { t } from "i18next";
 const TeamPageContent = () => {
   return (
     <div className="w-full flex justify-center items-center">
-      <div className="comp-max-width flex flex-col justify-center items-center py-10 gap-y-6 min-h-screen">
+      <div className="comp-max-width flex flex-col justify-center items-center py-8 gap-y-4">
         <img
           src={ProfilePic}
           alt="profile-picture"
-          className="w-96 h-96 shadow-lightCustomBoxShadow dark:shadow-darkCustomBoxShadow rounded-full"
+          className="w-80 h-80 shadow-lightCustomBoxShadow dark:shadow-darkCustomBoxShadow rounded-full"
         />
         <div className="flex flex-col justify-center items-center gap-y-1 text-purple dark:text-pinkish ">
           <h4 className="text-4xl font-medium">Ahmet Can Yalçınkaya</h4>

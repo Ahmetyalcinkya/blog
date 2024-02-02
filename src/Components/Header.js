@@ -139,8 +139,7 @@ const Header = () => {
                     {t("UserProfile")}
                   </Link>
                   <Link
-                    to="/admin"
-                    //? CONTROL PANEL ROUTING WILL BE ADDED
+                    to="/admin/home"
                     className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila"
                   >
                     {t("AdminControl")}

@@ -5,10 +5,12 @@ import TeamPageContent from "../Components/TeamPageComponents/TeamPageContent";
 
 const TeamPage = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
       <TeamPageContent />
-      <Footer />
+      <div className="absolute bottom-0 w-full">
+        <Footer />
+      </div>
     </div>
   );
 };
