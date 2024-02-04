@@ -54,7 +54,7 @@ const CategorySaveForm = () => {
       </div>
       <div className="w-[35rem] h-24 text-left">
         <label className="form-label">
-          New Category image :
+          Category image :
           <input
             className="form-input"
             placeholder="Blog resmini giriniz..."

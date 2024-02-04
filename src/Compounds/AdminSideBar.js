@@ -60,6 +60,15 @@ const AdminSideBar = () => {
             <FontAwesomeIcon icon={faAnglesRight} />
           </span>
         </Link>
+        <Link
+          to={"/admin/home"}
+          className="w-full font-bold flex justify-between"
+        >
+          Admin Home Page{" "}
+          <span>
+            <FontAwesomeIcon icon={faAnglesRight} />
+          </span>
+        </Link>
       </div>
     </div>
   );
