@@ -99,7 +99,9 @@ const CommentOperationsContent = () => {
               </div>
             ))
           ) : (
-            <div>Kullanıcıya ait herhangi bir yorum bulunmamaktadır!</div>
+            <h4 className="font-bold text-lg italic">
+              Kullanıcıya ait herhangi bir yorum bulunmamaktadır!
+            </h4>
           )}
         </div>
       </div>

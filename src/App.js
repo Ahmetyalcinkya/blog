@@ -17,6 +17,8 @@ import ContactPage from "./Layouts/ContactPage";
 import AdminHomePage from "./Layouts/admin/AdminHomePage";
 import CategoryOperations from "./Layouts/admin/CategoryOperations";
 import CommentOperations from "./Layouts/admin/CommentOperations";
+import PostOperations from "./Layouts/admin/PostOperations";
+import UserOperations from "./Layouts/admin/UserOperations";
 
 function App() {
   const { theme } = useContext(SwitchContext);
@@ -68,6 +70,12 @@ function App() {
         </Route>
         <Route exact path="/admin/comment-operations">
           <ProtectedPage PageComponent={CommentOperations} fromURL={"/login"} />
+        </Route>
+        <Route exact path="/admin/post-operations">
+          <ProtectedPage PageComponent={PostOperations} fromURL={"/login"} />
+        </Route>
+        <Route exact path="/admin/user-operations">
+          <ProtectedPage PageComponent={UserOperations} fromURL={"/login"} />
         </Route>
       </Switch>
     </div>
