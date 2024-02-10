@@ -8,6 +8,7 @@ const LangContextProvider = ({ children }) => {
 
   const toggleLanguage = async (lang) => {
     await i18n.changeLanguage(lang);
+    location.reload();
   };
 
   return (

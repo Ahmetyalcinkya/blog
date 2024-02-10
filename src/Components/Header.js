@@ -35,13 +35,6 @@ const Header = () => {
     }, 1000);
   };
 
-  useEffect(() => {
-    if (theme === "light") {
-    } else {
-      //TOASTIFY
-    }
-  }, []);
-
   return (
     <header className="w-full row-centered sticky top-0 left-0 right-0 bg-purple/20 dark:bg-pinkish/20 transition-colors p-4 h-32 z-50">
       <NavLink
