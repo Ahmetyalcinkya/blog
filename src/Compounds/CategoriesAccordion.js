@@ -1,4 +1,5 @@
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import { t } from "i18next";
 import React from "react";
 
 const CategoriesAccordion = ({ category, deleteHandler }) => {
@@ -19,12 +20,14 @@ const CategoriesAccordion = ({ category, deleteHandler }) => {
         </div>
       </AccordionSummary>
       <AccordionDetails className="h-16 flex w-full items-center justify-between">
-        <h4>Rating : {category?.rating}</h4>
+        <h4>
+          {t("Rating")} : {category?.rating}
+        </h4>
         <button
           onClick={() => deleteHandler(category?.id)}
           className="bg-red/30 border border-red shadow-redCustomBoxShadow  px-2 py-1 rounded-xl"
         >
-          Delete
+          {t("Delete")}
         </button>
       </AccordionDetails>
     </Accordion>

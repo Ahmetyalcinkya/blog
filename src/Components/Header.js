@@ -10,6 +10,7 @@ import { Link, NavLink } from "react-router-dom";
 import LOGO from "../Assets/Blog.io.png";
 import { useSelector } from "react-redux";
 import { fetchStates } from "../Redux/features/global/globalSlice";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const { theme } = useContext(SwitchContext);
@@ -22,6 +23,17 @@ const Header = () => {
   const userFetched = useSelector(
     (state) => state.user.fetchStates === fetchStates.fetched
   );
+  const userFetchFailed = useSelector(
+    (state) => state.user.fetchStates === fetchStates.fetch_failed
+  );
+
+  const logout = () => {
+    localStorage.removeItem("Blog-token");
+    toast.success("Çıkış yapıldı");
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
 
   useEffect(() => {
     if (theme === "light") {
@@ -72,7 +84,7 @@ const Header = () => {
       </nav>
       <Popover className="relative">
         <Popover.Button className="row-centered gap-4 shadow-lightCustomBoxShadow dark:shadow-darkCustomBoxShadow bg-purple dark:bg-pinkish rounded-full px-4 py-2 text-white dark:text-black outline-none">
-          {userNotFetched && <h4>{t("Enter")}</h4>}
+          {userNotFetched || (userFetchFailed && <h4>{t("Enter")}</h4>)}
           {userFetched && (
             <div className="flex gap-x-2 items-center justify-center">
               <img
@@ -81,7 +93,6 @@ const Header = () => {
                 className="w-8 h-8 rounded-full object-cover"
               />
               <h4 className="line-clamp-1">
-                {/* LINE CLAMP MUST BE SET */}
                 {user?.name} {user?.surname}
               </h4>
             </div>
@@ -101,22 +112,23 @@ const Header = () => {
         >
           <Popover.Panel className="absolute top-14 z-10 w-40 flex flex-col">
             <div className="overflow-hidden rounded-lg shadow-lg">
-              {userNotFetched && (
-                <div className="relative flex flex-col gap-2 text-cream p-2 w-full bg-purple dark:bg-pinkish text-white dark:text-black">
-                  <Link
-                    to="/login"
-                    className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila"
-                  >
-                    {t("Login")}
-                  </Link>
-                  <Link
-                    to="/signup"
-                    className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila"
-                  >
-                    {t("Signup")}
-                  </Link>
-                </div>
-              )}
+              {userNotFetched ||
+                (userFetchFailed && (
+                  <div className="relative flex flex-col gap-2 text-cream p-2 w-full bg-purple dark:bg-pinkish text-white dark:text-black">
+                    <Link
+                      to="/login"
+                      className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila"
+                    >
+                      {t("Login")}
+                    </Link>
+                    <Link
+                      to="/signup"
+                      className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila"
+                    >
+                      {t("Signup")}
+                    </Link>
+                  </div>
+                ))}
               {userFetched && user?.role.toUpperCase() === "USER" && (
                 <div className="relative flex flex-col gap-2 text-cream p-2 w-full bg-purple dark:bg-pinkish text-white dark:text-black">
                   <Link
@@ -125,7 +137,10 @@ const Header = () => {
                   >
                     {t("UserProfile")}
                   </Link>
-                  <button className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila">
+                  <button
+                    onClick={logout}
+                    className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila"
+                  >
                     {t("Logout")}
                   </button>
                 </div>
@@ -144,7 +159,10 @@ const Header = () => {
                   >
                     {t("AdminControl")}
                   </Link>
-                  <button className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila">
+                  <button
+                    onClick={logout}
+                    className="w-full text-burgundy flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-darkLila hover:dark:bg-lila"
+                  >
                     {t("Logout")}
                   </button>
                 </div>

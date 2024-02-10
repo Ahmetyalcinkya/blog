@@ -3,6 +3,7 @@ import { AxiosWAuth } from "../../Utilities/AxiosWAuth";
 import BlogSlider from "../../Compounds/BlogSlider";
 import CommentCard from "../../Compounds/CommentCard";
 import AddNewComment from "../../Compounds/AddNewComment";
+import { t } from "i18next";
 
 const BlogPagePageContent = ({ id }) => {
   const [post, setPost] = useState(null);
@@ -54,18 +55,18 @@ const BlogPagePageContent = ({ id }) => {
                   </h4>
                 </div>
                 <h4 className="font-bold text-xl">
-                  Post Date: {post?.createdAt.slice(0, 10)}
+                  {t("PostDate")}: {post?.createdAt.slice(0, 10)}
                 </h4>
               </div>
             </div>
           </div>
         </div>
         <h4 className="my-8 text-3xl text-purple dark:text-pinkish font-medium">
-          COMMENTS
+          {t("Comments")}
         </h4>
         {comments?.length === 0 ? (
           <h4 className="font-bold text-purple dark:text-pinkish text-2xl">
-            Henüz bir yorum yok!
+            {t("NoComments")}
           </h4>
         ) : (
           comments?.map((comment) => <CommentCard comment={comment} />)

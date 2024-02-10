@@ -8,6 +8,8 @@ import { Provider } from "react-redux";
 import { store } from "./Redux/store/store";
 import SwitchContextProvider from "./Contexts/SwitchContext";
 import LangContextProvider from "./Contexts/LanguageContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,5 +21,6 @@ root.render(
         </BrowserRouter>
       </SwitchContextProvider>
     </LangContextProvider>
+    <ToastContainer />
   </Provider>
 );

@@ -1,27 +1,58 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Route, Switch } from "react-router-dom";
+import "./App.css";
 import { SwitchContext } from "./Contexts/SwitchContext";
-import { Switch } from "react-router-dom";
-import { Route } from "react-router-dom";
-import HomePage from "./Layouts/HomePage";
+import AboutUsPage from "./Layouts/AboutUsPage";
 import BlogListPage from "./Layouts/BlogListPage";
 import BlogPage from "./Layouts/BlogPage";
-import AboutUsPage from "./Layouts/AboutUsPage";
-import UserProfilePage from "./Layouts/UserProfilePage";
-import "./App.css";
-import LoginPage from "./Layouts/LoginPage";
-import RegisterPage from "./Layouts/RegisterPage";
-import ProtectedPage from "./Layouts/ProtectedPage";
-import NewBlogPage from "./Layouts/NewBlogPage";
-import TeamPage from "./Layouts/TeamPage";
 import ContactPage from "./Layouts/ContactPage";
+import HomePage from "./Layouts/HomePage";
+import LoginPage from "./Layouts/LoginPage";
+import NewBlogPage from "./Layouts/NewBlogPage";
+import ProtectedPage from "./Layouts/ProtectedPage";
+import RegisterPage from "./Layouts/RegisterPage";
+import TeamPage from "./Layouts/TeamPage";
+import UserProfilePage from "./Layouts/UserProfilePage";
 import AdminHomePage from "./Layouts/admin/AdminHomePage";
 import CategoryOperations from "./Layouts/admin/CategoryOperations";
 import CommentOperations from "./Layouts/admin/CommentOperations";
 import PostOperations from "./Layouts/admin/PostOperations";
 import UserOperations from "./Layouts/admin/UserOperations";
+import { fetchAutoLogin } from "./Redux/features/thunk/fetchAutoLogin";
+import { toast } from "react-toastify";
+import { t } from "i18next";
 
 function App() {
+  const dispatch = useDispatch();
   const { theme } = useContext(SwitchContext);
+  useEffect(() => {
+    dispatch(fetchAutoLogin());
+    if (theme === "light") {
+      //TODO Redux içerisinden user name surname alarak toast mesajına ekle!
+      toast(`${t("toast1")}`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } else {
+      toast(`${t("toast1")}`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  }, []);
   return (
     <div
       className={`background-container ${

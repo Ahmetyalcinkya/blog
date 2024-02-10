@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
@@ -8,7 +9,7 @@ const EditProfile = ({ param }) => {
         Edit Profile
       </Link> */}
       <Link to={`/user/${param?.id}/add-new-blog`} className="edit-link">
-        Add New Blog
+        {t("AddNewBlog")}
       </Link>
     </div>
   );

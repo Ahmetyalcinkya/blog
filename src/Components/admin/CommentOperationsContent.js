@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import AdminSideBar from "../../Compounds/AdminSideBar";
 import { AxiosWAuth } from "../../Utilities/AxiosWAuth";
+import { t } from "i18next";
 
 const CommentOperationsContent = () => {
   const [comments, setComments] = useState(null);
@@ -20,8 +21,8 @@ const CommentOperationsContent = () => {
   const deleteHandler = (id) => {
     AxiosWAuth()
       .delete(`comments/deleteComment/${id}`)
-      .then((res) => toast.success("Comment Deleted!"))
-      .catch((err) => toast.error("Comment not Deleted!"));
+      .then((res) => toast.success(t("CommentToast")))
+      .catch((err) => toast.error(t("CommentToastFail")));
   };
 
   const onSubmit = (data) => {
@@ -48,15 +49,15 @@ const CommentOperationsContent = () => {
           >
             <div className="form-div">
               <label className="form-label">
-                Search for Comment :
+                {t("SearchComment")} :
                 <input
                   className="form-input"
-                  placeholder="Kullanıcı mail adresini giriniz..."
+                  placeholder={t("MailPlaceHolder")}
                   {...register("email", {
-                    required: "Email alanı doldurulmak zorundadır.",
+                    required: t("MailRequired"),
                     pattern: {
                       value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                      message: "Email adresi geçerli değildir.",
+                      message: t("MailNotValid"),
                     },
                   })}
                 />
@@ -66,7 +67,7 @@ const CommentOperationsContent = () => {
               </label>
             </div>
             <button className="w-1/10 text-purple dark:text-pinkish hover:text-lila dark:hover:text-darkLila border border-purple dark:border-pinkish hover:bg-purple dark:hover:bg-pinkish focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-3.5 transition-colors duration-300">
-              Search
+              {t("Search")}
             </button>
           </form>
           {comments?.length > 0 ? (
@@ -94,14 +95,12 @@ const CommentOperationsContent = () => {
                   onClick={() => deleteHandler(comment.id)}
                   className="border-t border-purple dark:border-pinkish hover:bg-red/50 hover:text-white w-full rounded-b-xl transition-colors duration-500"
                 >
-                  Delete Comment
+                  {t("DeleteComment")}
                 </button>
               </div>
             ))
           ) : (
-            <h4 className="font-bold text-lg italic">
-              Kullanıcıya ait herhangi bir yorum bulunmamaktadır!
-            </h4>
+            <h4 className="font-bold text-lg italic">{t("CommentNotFound")}</h4>
           )}
         </div>
       </div>

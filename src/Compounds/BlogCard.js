@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -19,7 +20,7 @@ const BlogCard = ({ post }) => {
           </h4>
         </div>
         <h4 className="text-lg font-bold text-purple dark:text-pinkish flex items-baseline gap-x-2">
-          <span className="text-sm font-medium">Category Rating:</span>{" "}
+          <span className="text-sm font-medium">{t("CategoryRating")}:</span>{" "}
           {post.categoryRating}
         </h4>
       </div>
@@ -30,7 +31,7 @@ const BlogCard = ({ post }) => {
             {post.title}
           </h4>
           <h4 className="text-lg font-bold text-purple dark:text-pinkish flex items-baseline gap-x-2">
-            <span className="text-sm font-medium">Post Rating:</span>
+            <span className="text-sm font-medium">{t("PostRating")}:</span>
             {post.rating}
           </h4>
         </div>
@@ -50,7 +51,7 @@ const BlogCard = ({ post }) => {
         </div>
 
         <h4 className="text-lg font-bold text-purple dark:text-pinkish flex items-baseline gap-x-2">
-          <span className="text-sm font-medium">Created Date:</span>{" "}
+          <span className="text-sm font-medium">{t("CreatedDate")}:</span>{" "}
           {post.createdAt.slice(0, 10)}
         </h4>
       </div>

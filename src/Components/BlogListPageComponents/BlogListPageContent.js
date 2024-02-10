@@ -13,6 +13,7 @@ import HighestCard from "../../Compounds/HighestCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { t } from "i18next";
 const filteredParamInitial = {
   filter: "",
 };
@@ -74,7 +75,7 @@ const BlogListPageContent = () => {
           <form onSubmit={handleSubmit} className="flex w-96 gap-x-2 h-10">
             <SearchBar changeHandler={changeHandler} />
             <button className="flex justify-center items-center w-20 border border-purple dark:border-pinkish rounded-lg bg-purple/30 dark:bg-pinkish/30 hover:bg-darkLila/60 hover:dark:bg-lila/60 transition-colors duration-500 text-purple dark:text-white font-bold">
-              Search
+              {t("Search")}
             </button>
           </form>
           {authenticatedUser?.id !== "" && (
@@ -83,7 +84,7 @@ const BlogListPageContent = () => {
               className=" flex items-center justify-center gap-x-2 cursor-pointer border py-2 px-3 dark:border-white rounded-lg bg-green hover:bg-lightGreen duration-300 transition-colors text-white font-bold"
             >
               <FontAwesomeIcon icon={faFileArrowUp} />
-              <h4>Yeni Gönderi</h4>
+              <h4>{t("NewBlog")}</h4>
             </Link>
           )}
         </div>
@@ -96,7 +97,7 @@ const BlogListPageContent = () => {
         </div>
         <div className="w-96 h-[30.5rem] flex flex-col items-center justify-start border rounded-xl border-purple dark:border-pinkish bg-purple/30 dark:bg-pinkish/30 shadow-lightCustomBoxShadow dark:shadow-darkCustomBoxShadow px-2 py-2">
           <h4 className="font-bold my-4 w-full text-center text-2xl text-darkLila dark:text-pinkish">
-            Posts you might want to see!
+            {t("PostUMightSee")}
           </h4>
           {highestPosts?.map((post) => (
             <HighestCard post={post} />

@@ -4,6 +4,7 @@ import { AxiosWAuth } from "../../Utilities/AxiosWAuth";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { t } from "i18next";
 
 const PostOperationsContent = () => {
   const [allPosts, setAllPosts] = useState(null);
@@ -29,8 +30,8 @@ const PostOperationsContent = () => {
   const deleteHandler = (id) => {
     AxiosWAuth()
       .delete(`posts/deletePostById/${id}`)
-      .then((res) => toast.success("Post Deleted!"))
-      .catch((err) => toast.error("Post not Deleted!"));
+      .then((res) => toast.success(t("PostToast")))
+      .catch((err) => toast.error(t("PostToastFail")));
   };
   console.log(allPosts);
   useEffect(() => {
@@ -52,12 +53,12 @@ const PostOperationsContent = () => {
           >
             <div className="form-div">
               <label className="form-label">
-                Search for Posts By TITLE :
+                {t("SearchPosts")} :
                 <input
                   className="form-input"
-                  placeholder="Blog başlığını giriniz..."
+                  placeholder={t("BlogPlaceHolder")}
                   {...register("title", {
-                    required: "Başlık alanı doldurulmak zorundadır.",
+                    required: t("BlogTitleRequired"),
                   })}
                 />
                 {errors.title && (
@@ -66,7 +67,7 @@ const PostOperationsContent = () => {
               </label>
             </div>
             <button className="w-1/10 text-purple dark:text-pinkish hover:text-lila dark:hover:text-darkLila border border-purple dark:border-pinkish hover:bg-purple dark:hover:bg-pinkish focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-3.5 transition-colors duration-300">
-              Search
+              {t("Search")}
             </button>
           </form>
           {postsByTitle?.length > 0 ? (
@@ -103,18 +104,16 @@ const PostOperationsContent = () => {
                   onClick={() => deleteHandler(post.id)}
                   className="border-t border-purple dark:border-pinkish hover:bg-red/50 hover:text-white w-full rounded-b-xl transition-colors duration-500"
                 >
-                  Delete Post
+                  {t("DeletePost")}
                 </button>
               </div>
             ))
           ) : (
-            <h4 className="font-bold text-lg italic">
-              Lütfen aramak istediğiniz post başlığını giriniz !
-            </h4>
+            <h4 className="font-bold text-lg italic">{t("SearchPostWarn")}</h4>
           )}
           <hr className="w-full my-2" />
           <div className="flex w-full flex-col justify-center items-center">
-            <h4 className="font-bold text-3xl">ALL POSTS</h4>
+            <h4 className="font-bold text-3xl">{t("Posts")}</h4>
             {allPosts != null &&
               allPosts?.map((post) => (
                 <div className="flex flex-col items-center border border-purple dark:border-pinkish bg-purple/30 dark:bg-pinkish/30 w-full rounded-xl shadow-lightCustomBoxShadow dark:shadow-darkCustomBoxShadow my-6">
@@ -149,7 +148,7 @@ const PostOperationsContent = () => {
                     onClick={() => deleteHandler(post.id)}
                     className="border-t border-purple dark:border-pinkish hover:bg-red/50 hover:text-white w-full rounded-b-xl transition-colors duration-500"
                   >
-                    Delete Post
+                    {t("DeletePost")}
                   </button>
                 </div>
               ))}

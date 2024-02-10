@@ -1,5 +1,6 @@
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { t } from "i18next";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -20,7 +21,7 @@ const AdminSideBar = () => {
             {authenticatedUser?.name} {authenticatedUser?.surname}
           </h4>
         </div>
-        <h4 className="underline font-bold">ADMIN</h4>
+        <h4 className="underline font-bold">{t("Admin")}</h4>
       </div>
       <hr className="text-purple dark:text-pinkish w-full my-2" />
       <div className="flex flex-col w-full gap-y-2">
@@ -28,7 +29,7 @@ const AdminSideBar = () => {
           to={"/admin/category-operations"}
           className="w-full font-bold flex justify-between"
         >
-          Category Operations{" "}
+          {t("CategoryOperations")}{" "}
           <span>
             <FontAwesomeIcon icon={faAnglesRight} />
           </span>
@@ -37,7 +38,7 @@ const AdminSideBar = () => {
           to={"/admin/comment-operations"}
           className="w-full font-bold flex justify-between"
         >
-          Comment Operations{" "}
+          {t("CommentOperations")}{" "}
           <span>
             <FontAwesomeIcon icon={faAnglesRight} />
           </span>
@@ -46,7 +47,7 @@ const AdminSideBar = () => {
           to={"/admin/post-operations"}
           className="w-full font-bold flex justify-between"
         >
-          Post Operations{" "}
+          {t("PostOperations")}{" "}
           <span>
             <FontAwesomeIcon icon={faAnglesRight} />
           </span>
@@ -55,7 +56,7 @@ const AdminSideBar = () => {
           to={"/admin/user-operations"}
           className="w-full font-bold flex justify-between"
         >
-          User Operations{" "}
+          {t("UserOperations")}{" "}
           <span>
             <FontAwesomeIcon icon={faAnglesRight} />
           </span>
@@ -64,7 +65,7 @@ const AdminSideBar = () => {
           to={"/admin/home"}
           className="w-full font-bold flex justify-between"
         >
-          Admin Home Page{" "}
+          {t("AdminHomePage")}{" "}
           <span>
             <FontAwesomeIcon icon={faAnglesRight} />
           </span>

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { AxiosWAuth } from "../Utilities/AxiosWAuth";
 import { useHistory } from "react-router-dom";
+import { t } from "i18next";
 
 const AddNewComment = ({ id }) => {
   const {
@@ -44,19 +45,19 @@ const AddNewComment = ({ id }) => {
     >
       <div className="w-full pl-12 flex flex-col justify-center items-center gap-y-3">
         <label className="font-bold w-full text-purple dark:text-pinkish">
-          Add New Comment :
+          {t("AddNewComment")} :
           <textarea
             className="bg-white w-full border border-purple dark:border-pinkish rounded-lg block p-2.5 shadow-lightCustomBoxShadow dark:shadow-darkCustomBoxShadow mt-2"
-            placeholder="Yorumunuzu giriniz... ( Yorumunuz Minimum 3, Maximum 250 karakterden oluşabilir. )"
+            placeholder={t("CommentPlaceHolder")}
             {...register("content", {
-              required: "Yorum alanı doldurulmak zorundadır.",
+              required: t("CommentRequired"),
               minLength: {
                 value: 3,
-                message: "Yorumunuz 3 harften kısa olamaz.",
+                message: t("CommentMinNotValid"),
               },
               maxLength: {
                 value: 250,
-                message: "Yorumunuz 250 harften uzun olamaz.",
+                message: t("CommentMaxNotValid"),
               },
             })}
           />
@@ -69,7 +70,7 @@ const AddNewComment = ({ id }) => {
           className="w-1/10 text-purple dark:text-pinkish hover:text-lila dark:hover:text-darkLila border border-purple dark:border-pinkish hover:bg-purple dark:hover:bg-pinkish focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-colors duration-300 h-12"
           disabled={loader}
         >
-          {loader ? <Spinner /> : "Yorumu Gönder"}
+          {loader ? <Spinner /> : <h4>{t("SendComment")}</h4>}
         </button>
       </div>
     </form>

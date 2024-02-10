@@ -1,5 +1,7 @@
+import { t } from "i18next";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const CategoryUpdateForm = ({ categories }) => {
   const [loader, setLoader] = useState(false);
@@ -31,8 +33,8 @@ const CategoryUpdateForm = ({ categories }) => {
     setTimeout(() => {
       AxiosWAuth()
         .put("/categories/admin/updateCategory", updateRequest)
-        .then((res) => toast.success("Category updated!"))
-        .catch((err) => toast.error("Category not updated!"));
+        .then((res) => toast.success(t("CategoryToast")))
+        .catch((err) => toast.error(t("CategoryToastFail")));
       setLoader(false);
     }, 2000);
   };
@@ -43,7 +45,7 @@ const CategoryUpdateForm = ({ categories }) => {
     >
       <div className="w-[35rem] flex justify-center items-center">
         <label className="form-label">
-          Kategori :
+          {t("Category")} :
           <select
             className="border border-purple dark:border-pinkish py-2 px-4 rounded-lg mx-4 text-purple dark:text-lila"
             {...register("id")}
@@ -60,16 +62,12 @@ const CategoryUpdateForm = ({ categories }) => {
       </div>
       <div className="w-[35rem] h-24 text-left">
         <label className="form-label">
-          New Category title :
+          {t("NewCategoryTitle")} :
           <input
             className="form-input"
-            placeholder="Blog başlığını giriniz..."
+            placeholder={t("CategoryPlaceHolder")}
             {...register("title", {
-              required: "Title alanı doldurulmak zorundadır.",
-              minLength: {
-                value: 10,
-                message: "Title 10 harften kısa olamaz.",
-              },
+              required: t("BlogTitleRequired"),
             })}
           />
           {errors.title && (
@@ -79,20 +77,20 @@ const CategoryUpdateForm = ({ categories }) => {
       </div>
       <div className="w-[35rem] h-24 text-left">
         <label className="form-label">
-          New Category image :
+          {t("NewCategoryImage")} :
           <input
             className="form-input"
-            placeholder="Blog resmini giriniz..."
+            placeholder={t("CategoryImagePlaceHolder")}
             defaultValue={null}
             {...register("image", {
-              required: "URL alanı doldurulmak zorundadır.",
+              required: t("URLRequired"),
               minLength: {
                 value: 10,
-                message: "URL 10 harften kısa olamaz.",
+                message: t("URLLengthNotValid"),
               },
               pattern: {
                 value: /^(ftp|http|https):\/\/[^ "]+$/,
-                message: "Geçerli bir URL giriniz.",
+                message: t("URLNotValid"),
               },
             })}
           />
@@ -110,7 +108,7 @@ const CategoryUpdateForm = ({ categories }) => {
         className="w-1/10 text-purple dark:text-pinkish hover:text-lila dark:hover:text-darkLila border border-purple dark:border-pinkish hover:bg-purple dark:hover:bg-pinkish focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-colors duration-300 h-12"
         disabled={loader}
       >
-        {loader ? <Spinner /> : "Kategoriyi Güncelle"}
+        {loader ? <Spinner /> : <h4>{t("UpdateCategory")}</h4>}
       </button>
     </form>
   );

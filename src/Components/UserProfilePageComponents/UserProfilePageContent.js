@@ -4,6 +4,7 @@ import { AxiosWAuth } from "../../Utilities/AxiosWAuth";
 import { useParams } from "react-router-dom";
 import EditProfile from "../../Compounds/EditProfile";
 import BlogCard from "../../Compounds/BlogCard";
+import { t } from "i18next";
 
 const UserProfilePageContent = () => {
   const param = useParams();
@@ -43,7 +44,7 @@ const UserProfilePageContent = () => {
             </h4>
             <h4 className="text-sm">{user?.email}</h4>
             <h4>
-              Member since:{" "}
+              {t("MemberSince")}:{" "}
               <span className="text-lg font-bold">
                 {user?.registrationDate.slice(0, 10)}
               </span>
@@ -52,11 +53,11 @@ const UserProfilePageContent = () => {
           {authenticatedUser?.id === user?.id && <EditProfile param={param} />}
         </div>
         {postOfUser === null ? (
-          <h4>Kullanıcının herhangi bir gönderisi yok.</h4>
+          <h4>{t("UserPosts")}</h4>
         ) : (
           <div className="flex flex-wrap flex-1 w-full gap-y-10">
             <h4 className="text-purple dark:text-pinkish text-3xl">
-              Most Popular Posts
+              {t("MostPopular")}
             </h4>
             {highestPosts.map((post) => (
               <BlogCard post={post} />

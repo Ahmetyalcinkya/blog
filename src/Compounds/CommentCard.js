@@ -1,5 +1,6 @@
 import { faComments } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { t } from "i18next";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -15,7 +16,7 @@ const CommentCard = ({ comment }) => {
         <div className="w-full border border-purple dark:border-pinkish rounded-lg px-8 py-2 gap-y-1 flex flex-col bg-purple/30 dark:bg-pinkish/30">
           <p>{comment?.content}</p>
           <h4 className="text-right text-purple dark:text-pinkish">
-            Comment Date: {comment?.createdAt.slice(0, 10)}
+            {t("CommentDate")}: {comment?.createdAt.slice(0, 10)}
           </h4>
         </div>
         <Link

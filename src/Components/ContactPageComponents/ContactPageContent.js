@@ -10,6 +10,7 @@ import {
   faPhoneVolume,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { t } from "i18next";
 import React from "react";
 
 const ContactPageContent = () => {
@@ -18,7 +19,7 @@ const ContactPageContent = () => {
       <div className="comp-max-width flex flex-col justify-center items-center gap-y-20 py-28">
         <div className="flex flex-col gap-y-6 py-4 justify-center items-center">
           <h4 className="italic font-medium text-purple dark:text-pinkish text-3xl">
-            Get in touch with us !
+            {t("GetInTouch")}
           </h4>
           <div className=" flex gap-x-24 justify-center items-center">
             <div className="flex flex-col justify-center items-center gap-y-2">
@@ -67,7 +68,7 @@ const ContactPageContent = () => {
         </div>
         <div className=" flex flex-col gap-y-6">
           <h4 className="italic font-medium text-purple dark:text-pinkish text-3xl">
-            Connect with us !
+            {t("ConnectUs")}
           </h4>
           <div className="flex gap-x-8 justify-center items-center">
             <a

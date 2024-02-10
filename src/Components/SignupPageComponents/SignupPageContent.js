@@ -5,6 +5,7 @@ import { AxiosWAuth } from "../../Utilities/AxiosWAuth";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { Spinner } from "@material-tailwind/react";
+import { t } from "i18next";
 
 const SignupPageContent = () => {
   const {
@@ -40,12 +41,10 @@ const SignupPageContent = () => {
       AxiosWAuth()
         .post("auth/register", data)
         .then((res) => {
-          toast.success(
-            "You need to click link in email to activate your account!"
-          );
+          toast.success(t("Activation"));
           history.goBack();
         })
-        .catch((err) => toast.error("Something went wrong!"));
+        .catch((err) => toast.error(t("SomethingWentWrong")));
       setLoader(false);
     }, 3000);
   };
@@ -53,11 +52,11 @@ const SignupPageContent = () => {
   return (
     <div className="w-full flex flex-col justify-center items-center gap-y-6 min-h-screen">
       <div className="pt-10 gap-y-1 flex flex-col justify-around items-center h-24 text-black dark:text-white">
-        <h1 className="font-bold text-4xl">Sign Up</h1>
+        <h1 className="font-bold text-4xl">{t("Signup")}</h1>
         <p>
-          Already a member ?{" "}
+          {t("aMember")}{" "}
           <Link to="/login" className="text-purple dark:text-pinkish font-bold">
-            Log in
+            {t("Login")}
           </Link>
         </p>
       </div>
@@ -67,15 +66,15 @@ const SignupPageContent = () => {
       >
         <div className="form-div">
           <label className="form-label">
-            İsim :
+            {t("Name")} :
             <input
               className="form-input"
-              placeholder="İsminizi giriniz..."
+              placeholder={t("NamePlaceHolder")}
               {...register("name", {
-                required: "İsim alanı doldurulmak zorundadır.",
+                required: t("NameRequired"),
                 minLength: {
                   value: 3,
-                  message: "İsminiz 3 harften kısa olamaz.",
+                  message: t("NameNotValid"),
                 },
               })}
             />
@@ -86,15 +85,15 @@ const SignupPageContent = () => {
         </div>
         <div className="form-div">
           <label className="form-label">
-            Soyisim :
+            {t("Surname")} :
             <input
               className="form-input"
-              placeholder="İsminizi giriniz..."
+              placeholder={t("SurnamePlaceHolder")}
               {...register("surname", {
-                required: "Soyisim alanı doldurulmak zorundadır.",
+                required: t("SurNameRequired"),
                 minLength: {
                   value: 3,
-                  message: "Soyisminiz 3 harften kısa olamaz.",
+                  message: t("SurNameNotValid"),
                 },
               })}
             />
@@ -105,15 +104,19 @@ const SignupPageContent = () => {
         </div>
         <div className="form-div">
           <label className="form-label">
-            Profil Fotoğrafı :
+            {t("ProfilePicture")} :
             <input
               className="form-input"
-              placeholder="URL giriniz..."
+              placeholder={t("ProfilePicturePlaceHolder")}
               {...register("profilePicture", {
-                required: "Profil fotoğrafı eklemek zorunludur.",
+                required: t("ProfilePictureRequired"),
                 minLength: {
-                  value: 25,
-                  message: "URL 25 harften kısa olamaz.",
+                  value: 10,
+                  message: t("URLLengthNotValid"),
+                },
+                pattern: {
+                  value: /^(ftp|http|https):\/\/[^ "]+$/,
+                  message: t("URLNotValid"),
                 },
               })}
             />
@@ -129,12 +132,12 @@ const SignupPageContent = () => {
             Email :
             <input
               className="form-input"
-              placeholder="E-mail adresinizi giriniz..."
+              placeholder={t("EMailPlaceHolder")}
               {...register("email", {
-                required: "Email alanı doldurulmak zorundadır.",
+                required: t("MailRequired"),
                 pattern: {
                   value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                  message: "Email adresi geçerli değildir.",
+                  message: t("MailNotValid"),
                 },
               })}
             />
@@ -145,24 +148,23 @@ const SignupPageContent = () => {
         </div>
         <div className="form-div">
           <label className="form-label">
-            Password :
+            {t("Password")} :
             <input
               className="form-input"
               type="password"
               name="password"
               id="password"
-              placeholder="Şifrenizi giriniz..."
+              placeholder={t("PasswordPlaceHolder")}
               {...register("password", {
-                required: "Lütfen şifrenizi giriniz.",
+                required: t("PasswordRequired"),
                 minLength: {
                   value: 8,
-                  message: "Şifreniz minimum 8 karakter olmalıdır.",
+                  message: t("PasswordLengthNotValid"),
                 },
                 pattern: {
                   value:
                     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{6,64}$/,
-                  message:
-                    "Şifreniz büyük harf, küçük harf, sayı ve özel karakter içermelidir.",
+                  message: t("PasswordNotValid"),
                 },
               })}
             />
@@ -173,15 +175,15 @@ const SignupPageContent = () => {
         </div>
         <div className="form-div">
           <label className="form-label">
-            Validate Password :
+            {t("VPassword")} :
             <input
               className="form-input"
               type={"password"}
-              placeholder="Şifrenizi tekrar giriniz..."
+              placeholder={t("VPasswordPlaceHolder")}
               {...register("confirmPassword", {
-                required: "Lütfen şifrenizi tekrar giriniz.",
+                required: t("VPasswordRequired"),
                 validate: (value) => {
-                  return value === watch("password") || "Şifreler eşleşmedi.";
+                  return value === watch("password") || t("PasswordNotMatched");
                 },
               })}
             />
@@ -196,7 +198,7 @@ const SignupPageContent = () => {
           className="text-purple dark:text-pinkish hover:text-lila dark:hover:text-darkLila border border-purple dark:border-pinkish hover:bg-purple dark:hover:bg-pinkish focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-colors duration-300"
           disabled={loader}
         >
-          {loader === true ? <Spinner /> : "Submit"}
+          {loader === true ? <Spinner /> : <h4>{t("Submit")}</h4>}
         </button>
       </form>
     </div>

@@ -4,6 +4,7 @@ import { AxiosWAuth } from "../../Utilities/AxiosWAuth";
 import { Spinner } from "@material-tailwind/react";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
+import { t } from "i18next";
 
 const NewBlogPageContent = () => {
   const {
@@ -36,11 +37,11 @@ const NewBlogPageContent = () => {
       AxiosWAuth()
         .post("posts/", postData)
         .then((res) => {
-          toast.success("Post Saved!");
+          toast.success(t("PostSaveToast"));
           history.push("/blogs");
         })
         .catch((err) => {
-          toast.success("Please Login!");
+          toast.success(t("LoginToast"));
           history.push("/login");
           console.log(err);
         });
@@ -58,7 +59,7 @@ const NewBlogPageContent = () => {
   return (
     <div className="w-full flex flex-col justify-center items-center min-h-screen">
       <h4 className="font-bold text-3xl text-purple dark:text-pinkish">
-        New Blog
+        {t("NewBlog")}
       </h4>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -66,15 +67,15 @@ const NewBlogPageContent = () => {
       >
         <div className="w-[35rem] h-24 text-left">
           <label className="form-label">
-            Blog title :
+            {t("BlogTitle")} :
             <input
               className="form-input"
-              placeholder="Blog başlığını giriniz..."
+              placeholder={t("BlogPlaceHolder")}
               {...register("title", {
-                required: "Title alanı doldurulmak zorundadır.",
+                required: t("BlogTitleRequired"),
                 minLength: {
                   value: 10,
-                  message: "Title 10 harften kısa olamaz.",
+                  message: t("TitleNotValid"),
                 },
               })}
             />
@@ -86,15 +87,15 @@ const NewBlogPageContent = () => {
         {[0, 1, 2].map((index) => (
           <div key={index} className="w-[35rem] h-24 text-left">
             <label className="form-label">
-              {`Image ${index + 1}:`}
+              {`${t("Image")} ${index + 1}:`}
               <input
                 className="form-input"
-                placeholder="Blog resmini giriniz..."
+                placeholder={t("ImagePlaceHolder")}
                 defaultValue={null}
                 {...register(`images[${index}]`, {
                   pattern: {
                     value: /^(ftp|http|https):\/\/[^ "]+$/,
-                    message: "Geçerli bir URL giriniz.",
+                    message: t("URLNotValid"),
                   },
                 })}
               />
@@ -105,7 +106,7 @@ const NewBlogPageContent = () => {
           </div>
         ))}
         <label className="form-label">
-          Kategori :
+          {t("Category")} :
           <select
             className="border border-purple dark:border-pinkish py-2 px-4 rounded-lg mx-4 text-purple dark:text-lila"
             {...register("categoryID")}
@@ -121,16 +122,16 @@ const NewBlogPageContent = () => {
         </label>
         <div className="flex flex-col w-[35rem] py-4">
           <label className="form-label">
-            Blog content :
+            {t("BlogContent")} :
             <textarea
               className="form-input"
               type="text"
-              placeholder="Blog içeriğini buraya yazmalısınız..."
+              placeholder={t("BlogContentPlaceHolder")}
               {...register("content", {
-                required: "Content alanı doldurulmak zorundadır.",
+                required: t("ContentRequired"),
                 minLength: {
                   value: 500,
-                  message: "Content 500 harften kısa olamaz.",
+                  message: t("ContentMaxNotValid"),
                 },
               })}
             />
@@ -143,7 +144,7 @@ const NewBlogPageContent = () => {
           className="text-purple dark:text-pinkish hover:text-lila dark:hover:text-darkLila border border-purple dark:border-pinkish hover:bg-purple dark:hover:bg-pinkish focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition-colors duration-300"
           disabled={loader}
         >
-          {loader === true ? <Spinner /> : "Submit"}
+          {loader === true ? <Spinner /> : <h4>{t("Submit")}</h4>}
         </button>
       </form>
     </div>

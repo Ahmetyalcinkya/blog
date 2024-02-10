@@ -10,7 +10,7 @@ const HighestCard = ({ post }) => {
       <div className="flex gap-x-4 items-center justify-between">
         <img
           src={post.categoryImage}
-          alt=""
+          alt={post.id}
           className="w-10 h-10 rounded-full"
         />
         <h4 className="line-clamp-1">{post.title.slice(0, 50)}</h4>
