@@ -1,4 +1,4 @@
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const ProtectedPage = ({ PageComponent, fromURL }) => {
   const history = useHistory();

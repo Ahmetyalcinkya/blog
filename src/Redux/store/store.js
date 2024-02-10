@@ -1,6 +1,6 @@
-import { Tuple, configureStore } from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger";
+import thunk from "redux-thunk";
 import globalReducer from "../features/global/globalSlice";
 import postReducer from "../features/post/postSlice";
 import userReducer from "../features/user/userSlice";

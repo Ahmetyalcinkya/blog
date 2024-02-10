@@ -1,7 +1,6 @@
-import React from "react";
-import { AxiosWAuth } from "../Utilities/AxiosWAuth";
-import CategoryHeaderCompound from "./CategoryHeaderCompound";
 import { t } from "i18next";
+import React from "react";
+import CategoryHeaderCompound from "./CategoryHeaderCompound";
 
 const CategoryCardItems = ({ categories, setCategoryProducts }) => {
   const highRatingCategories = [...categories].sort(
