@@ -29,8 +29,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchAutoLogin());
     if (theme === "light") {
-      //TODO Redux içerisinden user name surname alarak toast mesajına ekle!
-      toast(`${t("toast1")}`, {
+      toast(`${t("Welcome")}`, {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -41,7 +40,7 @@ function App() {
         theme: "dark",
       });
     } else {
-      toast(`${t("toast1")}`, {
+      toast(`${t("Welcome")}`, {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
