@@ -8,3 +8,42 @@
 .light-background {
   background-image: url("./svg/lightBackground.svg");
 }
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar {
+  height: 0.25rem;
+}
+::-webkit-scrollbar {
+  background: #fff;
+}
+::-webkit-scrollbar-track {
+  background: #392467;
+}
+::-webkit-scrollbar-thumb {
+  background: #a367b1;
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b0aafa;
+}
+.dark ::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.dark ::-webkit-scrollbar {
+  height: 0.25rem;
+}
+.dark ::-webkit-scrollbar {
+  background: #fff;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #a367b1;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #ffd1e3;
+  border-radius: 1rem;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #8f88ff;
+}

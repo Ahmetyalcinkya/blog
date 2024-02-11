@@ -5,10 +5,12 @@ import UserOperationsContent from "../../Components/admin/UserOperationsContent"
 
 const UserOperations = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
       <UserOperationsContent />
-      <Footer />
+      <div className="absolute bottom-0 w-full">
+        <Footer />
+      </div>
     </div>
   );
 };
